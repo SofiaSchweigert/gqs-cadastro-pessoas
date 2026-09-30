@@ -172,4 +172,4 @@ while op != 6:
     else:
         print("Opcao invalida")
 
-print("Fim do programa") 
+print("Fim do programa")
