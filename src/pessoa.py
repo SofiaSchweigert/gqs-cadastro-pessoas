@@ -1,5 +1,5 @@
 class Pessoa:
-    def __init__(self, nome, idade, email)
+    def __init__(self, nome, idade, email):
         self.__nome = nome
         self.__idade = idade
         self.__email = email
