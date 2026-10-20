@@ -13,7 +13,7 @@ class CadastroPessoas:
         self.__pessoas.append(pessoa)
         return pessoa
 
-    def buscarPorNone(self, nome):
+    def buscarPorNome(self, nome):
         for pessoa in self.__pessoas:
             if pessoa.getNome( ) == nome:
                 return pessoa
