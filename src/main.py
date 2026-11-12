@@ -1,7 +1,7 @@
-
 """Interface do sistema de cadastro de pessoas."""
 
 from cadastro import CadastroPessoas
+from repositorio_pessoas_mysql import RepositorioPessoasMySQL
 
 
 def exibir_menu():
@@ -68,15 +68,18 @@ def alterar_pessoa(cadastro):
         novo_idade = int(input("Nova idade: "))
         novo_email = input("Novo email: ")
 
-        cadastro.alterar(
+        pessoa_alterada = cadastro.alterar(
             procurado,
             novo_nome,
             novo_idade,
             novo_email
         )
 
-        print("Pessoa alterada!")
-        exibir_pessoa(pessoa)
+        if pessoa_alterada is not None:
+            print("Pessoa alterada!")
+            exibir_pessoa(pessoa_alterada)
+        else:
+            print("Nao foi possivel alterar a pessoa.")
 
 
 def listar_pessoas(cadastro):
@@ -145,7 +148,7 @@ def analisar_pessoa(cadastro):
 
 def executar():
     """Executa o menu principal da aplicacao."""
-    cadastro = CadastroPessoas()
+    cadastro = CadastroPessoas(RepositorioPessoasMySQL())
     op = 0
 
     while op != 6:
